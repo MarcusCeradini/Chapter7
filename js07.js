@@ -67,6 +67,20 @@ document.getElementById("getFile").onchange = function() {
 
             unique = unique.slice(0, 100)
 
+            let maxCount = unique[0][1];
+
+            unique.sort();
+
+            let cloudBox = document.getElementById("wc_cloud")
+            cloudBox.innerHTML = "";
+
+            for(let i = 0; i < unique.length; i++) {
+                  let word = document.createElement("span");
+                  word.textContent = unique[i][0];
+                  word.style.fontSize = unique[i][1]/maxCount + "em";
+                  cloudBox.appendChild(word);
+            }
+
             console.log(words);
       }
 }
